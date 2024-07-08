@@ -1,0 +1,13 @@
+#
+services:
+  docker:
+    image: dockerapp/docker
+    privileged: true
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - HOSTOS=darwin
+        - HOSTARCH=arm64
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
